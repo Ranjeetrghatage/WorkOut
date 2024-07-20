@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorkOut.MVVM.Views.ExercisePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ExercisePage">
+    <Grid RowDefinitions=".15*,.3*,.7*">
+        <Label
+            StyleClass="Header,Black,Logo"
+            Text="Weight Loss Workout"
+            VerticalOptions="Center" />
+        <Button
+            Clip="{StaticResource circleButton}"
+            Command="{Binding NewExecerciseBtnCmd}"
+            Style="{StaticResource plusButton}"
+            Text="+" />
+        <Grid Grid.Row="1" RowDefinitions=".2*,.8*">
+            <Label StyleClass="Header,DarkGray" Text="Categories" />
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Categories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="15" WidthRequest="200">
+                            <RoundRectangle Shadow="{StaticResource roundShadow}" />
+                            <VerticalStackLayout Padding="15" Spacing="5">
+                                <Label StyleClass="Header,Black" Text="{Binding PendingExercises, StringFormat='{0} Pending'}" />
+
+                                <Label StyleClass="Header,Black" Text="{Binding Title}" />
+                                <ProgressBar Progress="{Binding Percentage}" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Grid Grid.Row="2" RowDefinitions=".2*,.8*">
+            <Label StyleClass="Header,DarkGray" Text="All Exercises" />
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Exercises}"
+                ItemsUpdatingScrollMode="KeepLastItemInView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <HorizontalStackLayout>
+                                <CheckBox
+                                    CheckedChanged="CheckBox_CheckedChanged"
+                                    IsChecked="{Binding IsCompleted}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    StyleClass="Header,Black"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

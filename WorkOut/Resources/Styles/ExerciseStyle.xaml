@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style Class="LightGray" TargetType="Label">
+        <Setter Property="TextColor" Value="LightGray" />
+    </Style>
+
+    <Style Class="DarkGray" TargetType="Label">
+        <Setter Property="TextColor" Value="DarkGray" />
+    </Style>
+
+    <Style Class="Black" TargetType="Label">
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <Style Class="Header" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="Large" />
+    </Style>
+
+    <Style TargetType="RoundRectangle">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Fill" Value="LightGray" />
+        <Setter Property="WidthRequest" Value="200" />
+    </Style>
+
+    <Shadow
+        x:Key="roundShadow"
+        Brush="Gray"
+        Opacity="0.7"
+        Radius="15"
+        Offset="10,15" />
+
+    <Style x:Key="plusButton" TargetType="Button">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="WidthRequest" Value="100" />
+        <Setter Property="HeightRequest" Value="100" />
+    </Style>
+
+    <EllipseGeometry
+        x:Key="circleButton"
+        Center="50,50"
+        RadiusX="30"
+        RadiusY="30" />
+
+    <Style Class="EntryDec" TargetType="Entry">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="PlaceholderColor" Value="OrangeRed" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+
+
+</ResourceDictionary>
